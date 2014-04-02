@@ -12,5 +12,6 @@ TEXT
 ,[{"full_text": "Uptime: $uptime","color": "\#22DD33"},
   {"full_text": "Kernel: $kernel","color": "\#B58900"},
   {"full_text": "Processes: $processes","color": "\#DC322F"},
-  {"full_text": "User: $user_names, $user_timem, $user_terms","color": "\#33CC99"}
+  {"full_text": "User: ${exec /home/lutzee/scripts/user}, ${user_time :0}, $user_terms","color": "\#33CC99"},
+  {"full_text": "Host: $nodename","color":"\#9933CC"}
 ]
