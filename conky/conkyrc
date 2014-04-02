@@ -1,0 +1,19 @@
+background  no
+out_to_console yes
+out_to_x no
+update_interval 1
+total_run_times 0
+short_units yes
+pad_percents 3
+
+override_utf8_locale yes
+
+TEXT
+,[{"full_text": "☢${fs_free /} ☗${fs_free /home} ⛁${fs_free /data}","color": "\#22DD33"},
+  {"full_text": "❤$acpitemp°C [$cpu% | ${loadavg 1}]","color": "\#DC322F"},
+  {"full_text": "≣[$memperc%]", "color":"\#B58900"},
+  {"full_text": "≈ ${wireless_essid enp0s20u1}[${wireless_link_qual_perc enp0s20u1}%]","color":"\#33CC99"},
+  {"full_text": "⌇[$battery_short | $battery_bar]","color":"\#9933CC"},
+  {"full_text": "♫${exec /home/lutzee/scripts/conkysound}", "color":"\#268BD2"},
+  {"full_text": "${time %a %d %b} ${time %H:%M:%S}"}
+]

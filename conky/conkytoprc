@@ -1,0 +1,16 @@
+background  no
+out_to_console yes
+out_to_x no
+update_interval 1
+total_run_times 0
+short_units yes
+pad_percents 3
+
+override_utf8_locale yes
+
+TEXT
+,[{"full_text": "Uptime: $uptime","color": "\#22DD33"},
+  {"full_text": "Kernel: $kernel","color": "\#B58900"},
+  {"full_text": "Processes: $processes","color": "\#DC322F"},
+  {"full_text": "User: $user_names, $user_timem, $user_terms","color": "\#33CC99"}
+]
