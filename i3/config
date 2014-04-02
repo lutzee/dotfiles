@@ -9,7 +9,8 @@
 set $mod Mod4
 
 # font for window titles.ISO 10646 = Unicode 
-font pango:Dejavu Sans Mono 10 
+#font pango:Dejavu Sans Mono 10 
+font pango:Droid Sans 10px
 
 # Use Mouse+$mod to drag floating windows to their wanted position 
 # floating_modifier $mod Mod4
@@ -159,8 +160,8 @@ bindsum Mod5+equal exec cmus-remove -S
 # finds out, if available)
 bar {
     status_command ~/.i3/conky
-    font pango:Dejavu Sans Mono 9
-        colors {
+    font pango:Droid Sans 10
+    colors {
             background #220000
             #statusline #93a1a1
             separator #220000
