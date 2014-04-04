@@ -1,0 +1,4 @@
+exec i3
+
+exec xrdb -merge ~/.Xresources
+source /etc/profile

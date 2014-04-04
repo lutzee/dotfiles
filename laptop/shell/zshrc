@@ -1,0 +1,82 @@
+# Created by newuser for 5.0.2
+HISTFILE=~/.HISTFILE
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -e
+
+zstyle :compinstall filename '/home/harry/.zshrc'
+
+TERMINAL=urxvt
+
+autoload -Uz compinit
+autoload -U colors && colors
+compinit
+
+PROMPT="%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
+[%?] » "
+
+alias ls="ls -F --color=auto"
+alias ll="ls -lF --color=auto"
+alias la="ls -alF --color=auto"
+
+alias cp="cp -ri"
+alias mv="mv -i"
+alias rm="rm -i"
+
+alias svps="ssh jamie@lutzee.net"
+alias sdesk="ssh flat19.endoftheinternet.org -p 8888"
+ 
+
+alias g="git"
+
+alias vol="alsamixer"
+
+alias dup="( urxvt & ) &>/dev/null"
+
+alias pacman="sudo pacman --color auto"
+
+eval $(dircolors ~/.dircolors)
+
+export GOPATH=$HOME/Coding/golang
+export EDITOR=vim
+export TNS_ADMIN=/opt/oracle/INSTANTCLIENT_12_1/
+
+# key bindings
+bindkey "\e[4~" end-of-line
+bindkey "\e[5~" beginning-of-history
+bindkey "\e[6~" end-of-history
+bindkey "\e[7~" beginning-of-line
+bindkey "\e[3~" delete-char
+bindkey "\e[2~" quoted-insert
+bindkey "\e[5C" forward-word
+bindkey "\e[5D" backward-word
+bindkey "\e\e[C" forward-word
+bindkey "\e\e[D" backward-word
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+
+bindkey "\eOc" emacs-forward-word
+bindkey "\eOd" emacs-backward-word
+bindkey "\ee[C" forward-word
+bindkey "\ee[D" backward-word
+bindkey "^H" backward-delete-word
+
+
+# for rxvt
+bindkey "\e[8~" end-of-line
+
+# for non RH/Debian xterm, can't hurt for RH/DEbian xterm
+bindkey "\eOH" beginning-of-line
+bindkey "\eOF" end-of-line
+
+# for freebsd console
+bindkey "\e[H" beginning-of-line
+bindkey "\e[F" end-of-line
+
+# completion in the middle of a line
+bindkey '^i' expand-or-complete-prefix
+
+
+
+#bindkey    "^[[3~"          delete-char
+#bindkey    "^[3;5~"         delete-char
