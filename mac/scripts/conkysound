@@ -1,0 +1,4 @@
+#!/bin/bash
+
+vol=`amixer -c 1 get Master | grep "Mono:" | awk '{print $4}'`
+echo $vol
