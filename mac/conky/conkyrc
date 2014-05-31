@@ -9,11 +9,13 @@ pad_percents 3
 override_utf8_locale yes
 
 TEXT
-,[{"full_text": "☢${fs_free /}","color": "\#22DD33"},
-  {"full_text": "❤$acpitemp°C [$cpu% | ${loadavg 1}]","color": "\#DC322F"},
-  {"full_text": "≣[$memperc%]", "color":"\#B58900"},
-  {"full_text": "≈ ${wireless_essid wlp3s0}","color":"\#33CC99"},
-  {"full_text": "⌇[$battery_short $battery_time]","color":"\#9933CC"},
-  {"full_text": "♫${exec /home/lutzee/scripts/conkysound}", "color":"\#268BD2"},
+,[{"full_text": "☢${fs_free /}","color": "\#d8ad4c"},
+  {"full_text": "❤$acpitemp°C [$cpu% | ${loadavg 1}]","color": "\#cf6a4c"},
+  {"full_text": "≣[$memperc%]", "color":"\#d8ad4c"},
+  {"full_text": "≈ ${wireless_essid wlp3s0}","color":"\#cf6a4c"},
+  {"full_text": "⌇[${exec /home/lutzee/scripts/battery.sh}]","color":"\#d8ad4c"},
+  {"full_text": "♫${exec /home/lutzee/scripts/conkysound}", "color":"\#cf6a4c"},
+  {"full_text": "☀[${exec /home/lutzee/scripts/backlight.py}%]", "color":"\#d8ad4c"},
+  {"full_text": "⌨[${exec /home/lutzee/scripts/keyboard.py}%]", "color":"\#cf6a4c"},
   {"full_text": "${time %a %d %b} ${time %H:%M:%S}"}
 ]

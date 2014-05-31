@@ -9,11 +9,11 @@
 set $mod Mod4
 
 # font for window titles.ISO 10646 = Unicode 
-#font pango:Dejavu Sans Mono 10 
-font pango:Droid Sans 10px
+font pango:Dejavu Sans Mono 16
+#font pango:Droid Sans 10px
 
 # Use Mouse+$mod to drag floating windows to their wanted position 
-# floating_modifier $mod Mod4
+floating_modifier $mod
 
 # start a terminal 
 bindsym $mod+Return exec i3-sensible-terminal 
@@ -22,13 +22,13 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill 
 
 # start dmenu (a program launcher) 
-bindsym $mod+space exec dmenu_run 
+bindsym $mod+space exec dmenu_run -fn 'Dejavu Sans Mono-16' 
 
 # change focus 
-bindsym $mod+j focus left 
-bindsym $mod+k focus down 
-bindsym $mod+l focus up 
-bindsym $mod+semicolon focus right 
+bindsym $mod+h focus left 
+bindsym $mod+j focus down 
+bindsym $mod+k focus up 
+bindsym $mod+l focus right 
 
 # alternatively, you can use the cursor keys: 
 bindsym $mod+Left focus left 
@@ -37,10 +37,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right 
 
 # move focused window 
-bindsym $mod+Shift+J move left 
-bindsym $mod+Shift+K move down 
-bindsym $mod+Shift+L move up 
-bindsym $mod+Shift+colon move right 
+bindsym $mod+Shift+H move left 
+bindsym $mod+Shift+J move down 
+bindsym $mod+Shift+k move up 
+bindsym $mod+Shift+L move right 
 
 # alternatively, you can use the cursor keys: 
 bindsym $mod+Shift+Left move left 
@@ -49,7 +49,7 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right 
 
 # split in horizontal orientation 
-bindsym $mod+h split h 
+bindsym $mod+g split h 
 
 # split in vertical orientation 
 bindsym $mod+v split v 
@@ -110,13 +110,18 @@ bindsym $mod+Shift+R restart
 bindsym $mod+Shift+E exit 
 
 # Backlight Controls 
-bindsym XF86MonBrightnessUp exec sudo acer_backlight up
-bindsym XF86MonBrightnessDown exec sudo acer_backlight down
+
+bindsym XF86MonBrightnessUp exec xbacklight + 5
+bindsym XF86MonBrightnessDown exec xbacklight -5
+
+bindsym XF86KbdBrightnessUp exec kbdlight up
+bindsym XF86KbdBrightnessDown exec kbdlight down
 
 # Audio Controls 
-bindsym XF86AudioMute exec amixer -c 0 -- sset Master togglemute 
-bindsym XF86AudioLowerVolume exec amixer -c 0 -- sset Master playback 5dB- 
-bindsym XF86AudioRaiseVolume exec amixer -c 0 -- sset Master playback 5dB+ 
+bindsym XF86AudioMute exec amixer -c 1 -- sset Master togglemute 
+bindsym XF86AudioLowerVolume exec amixer -c 1 -- sset Master playback 5dB- 
+bindsym XF86AudioRaiseVolume exec amixer -c 1 -- sset Master playback 5dB+ 
+
 
 # resize window (you can also use the mouse for that) 
 mode "resize" 
@@ -143,10 +148,11 @@ mode "resize"
 
        }
 
-client.focused          #660000 #990000 #ffffff
-client.unfocused        #110000 #220000 #888888
+client.focused          #d8ad4c #d8ad4c #000000
+client.unfocused        #3b3b3b #3b3b3b #888888
 client.focused_inactive #2C2D2E #2C2D2E #888888
-client.urgent           #FEA63C #4D4D4D #888888
+client.urgent           #99ad6a #99ad6a #888888
+
 bindsym $mod+r mode "resize"
 #bindsym Mod4+o exec i3lock -c 000000
 bindsym Mod4+o exec lock
@@ -154,22 +160,22 @@ bindsym Mod4+o exec lock
 bindsym Mod5+bracketright exec cmus-remote -n
 bindsym Mod5+bracketleft exec cmus-remote -r
 bindsym Mod5+p exec cmus-remote -p
-bindsum Mod5+equal exec cmus-remove -S
+bindsym Mod5+equal exec cmus-remove -S
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
     status_command ~/.i3/conky
-    font pango:Droid Sans 10
+    font pango:Droid Sans 14
     colors {
-            background #220000
+            background #1b1b1b
             #statusline #93a1a1
-            separator #220000
+            separator #1b1b1b
 
-            focused_workspace  #BB0000 #BB0000 #ffffff
-            active_workspace   #BB0000 #BB0000 #ffffff
-            inactive_workspace #331111 #331111 #888888
-            urgent_workspace   #ff0000 #ff0000 #ffffff
+            focused_workspace  #d8ad4c #d8ad4c #000000
+            active_workspace   #d8ad4c #d8ad4c #000000
+            inactive_workspace #3b3b3b #3b3b3b #888888
+            urgent_workspace   #99ad6a #99ad6a #888888
          }
 }
 
@@ -180,11 +186,11 @@ bar {
     mode hide
     tray_output none
     modifier Mod5
-    font pango:Dejavu Sans Mono 9
+    font pango:Dejavu Sans Mono 14
         colors {
-            background #220000
+            background #1b1b1b
             #statusline #93a1a1
-            separator #220000
+            separator #3b3b3b
 
             focused_workspace  #BB0000 #BB0000 #ffffff
             active_workspace   #BB0000 #BB0000 #ffffff
@@ -203,5 +209,5 @@ for_window [class="Thunderbird"] border none
 for_window [class="Venom"] border none
 
 exec --no-startup-id ~/scripts/wallpaper.sh
-exec --no-startup-id /home/lutzee/i3_startup.sh
+exec --no-startup-id /home/lutzee/scripts/i3_start.sh
 exec setxkbmap gb
