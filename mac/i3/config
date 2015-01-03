@@ -93,7 +93,7 @@ bindsym $mod+Shift+at move container to workspace 2:tools
 bindsym $mod+Shift+sterling move container to workspace 3:chat
 bindsym $mod+Shift+dollar move container to workspace 4:code
 bindsym $mod+Shift+percent move container to workspace 5:misc
-bindsym $mod+Shift+asciicircum move container to work##space 6:misc
+bindsym $mod+Shift+asciicircum move container to workspace 6:misc
 bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
 bindsym $mod+Shift+parenleft move container to workspace 9
