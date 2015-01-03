@@ -1,5 +1,4 @@
-#!/bin/bash
-cairo-compmgr &
-xrdb -merge ~/.Xresources
+#cairo-compmgr &
+xrdb -DSOLARIZED_LIGHT -merge ~/.Xresources
 nm-applet &
-
+#dunst &

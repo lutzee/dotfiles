@@ -24,12 +24,12 @@ filetype plugin indent on    " required
 "Colour scheme
 syntax enable
 set background=dark
-colorscheme jellybeans
+colorscheme solarized
 
 "Statusline
 set laststatus=2
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
+      \ 'colorscheme': 'solarized',
       \ 'component': {
       \   'readonly': '%{&readonly?"⭤":""}',
       \ },

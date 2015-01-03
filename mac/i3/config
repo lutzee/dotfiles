@@ -22,7 +22,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill 
 
 # start dmenu (a program launcher) 
-bindsym $mod+space exec dmenu_run -fn 'Dejavu Sans Mono-16' 
+bindsym $mod+space exec dmenu_run -fn 'Dejavu Sans Mono-12' -nb '#fdf6e3' -sb '#dc322f' -sf '#93a1a1' 
 
 # change focus 
 bindsym $mod+h focus left 
@@ -89,11 +89,11 @@ bindsym $mod+minus scratchpad show
 
 # move focused container to workspace 
 bindsym $mod+Shift+exclam move container to workspace 1:web
-bindsym $mod+Shift+quotedbl move container to workspace 2:tools
+bindsym $mod+Shift+at move container to workspace 2:tools
 bindsym $mod+Shift+sterling move container to workspace 3:chat
 bindsym $mod+Shift+dollar move container to workspace 4:code
 bindsym $mod+Shift+percent move container to workspace 5:misc
-bindsym $mod+Shift+asciicircum move container to workspace 6:misc
+bindsym $mod+Shift+asciicircum move container to work##space 6:misc
 bindsym $mod+Shift+ampersand move container to workspace 7
 bindsym $mod+Shift+asterisk move container to workspace 8
 bindsym $mod+Shift+parenleft move container to workspace 9
@@ -168,14 +168,14 @@ bar {
     status_command ~/.i3/conky
     font pango:Droid Sans 14
     colors {
-            background #1b1b1b
+            background #fdf6e3
             #statusline #93a1a1
-            separator #1b1b1b
+            separator #fdf6e3
 
-            focused_workspace  #d8ad4c #d8ad4c #000000
-            active_workspace   #d8ad4c #d8ad4c #000000
-            inactive_workspace #3b3b3b #3b3b3b #888888
-            urgent_workspace   #99ad6a #99ad6a #888888
+            focused_workspace  #d05d2d #d05d2d #000000
+            active_workspace   #d05d2d #d05d2d #000000
+            inactive_workspace #cbac4c #cbac4c #000000
+            urgent_workspace   #dc322f #dc322f #000000
          }
 }
 
@@ -188,17 +188,19 @@ bar {
     modifier Mod5
     font pango:Dejavu Sans Mono 14
         colors {
-            background #1b1b1b
+            background #fdf6e3
             #statusline #93a1a1
-            separator #3b3b3b
+            separator #fdf6e3
 
-            focused_workspace  #BB0000 #BB0000 #ffffff
+            focused_workspace  #cb4b16 #cb4b16 #ffffff
             active_workspace   #BB0000 #BB0000 #ffffff
-            inactive_workspace #331111 #331111 #888888
+            inactive_workspace #331111 #331111 #888888b
             urgent_workspace   #ff0000 #ff0000 #ffffff
          }
 
 }
+
+gaps inner 30
 
 for_window [class="Surf"] border none
 for_window [class="Google-chrome"] border none
@@ -207,6 +209,7 @@ for_window [class="ADT"] border none
 for_window [class="URxvt"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="Venom"] border none
+for_window [class="Firefox"] border none
 
 exec --no-startup-id ~/scripts/wallpaper.sh
 exec --no-startup-id /home/lutzee/scripts/i3_start.sh
