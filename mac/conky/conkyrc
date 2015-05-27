@@ -16,6 +16,5 @@ TEXT
   {"full_text": "⌇[${exec /home/lutzee/scripts/battery.sh}]","color":"\#d8ad4c"},
   {"full_text": "♫${exec /home/lutzee/scripts/conkysound}", "color":"\#cf6a4c"},
   {"full_text": "☀[${exec /home/lutzee/scripts/backlight.py}%]", "color":"\#d8ad4c"},
-  {"full_text": "⌨[${exec /home/lutzee/scripts/keyboard.py}%]", "color":"\#cf6a4c"},
-  {"full_text": "${time %a %d %b} ${time %H:%M:%S}"}
+  {"full_text": "${time %a %d %b} ${time %H:%M:%S}", "color":"\#b58900"}
 ]
