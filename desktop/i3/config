@@ -9,11 +9,11 @@
 set $mod Mod4
 
 # font for window titles.ISO 10646 = Unicode 
-#font pango:Dejavu Sans Mono 10 
-font pango:Droid Sans 10
+font pango:Dejavu Sans Mono 10 
+#font pango:Droid Sans 10
 
 # Use Mouse+$mod to drag floating windows to their wanted position 
-# floating_modifier $mod Mod4
+floating_modifier $mod
 
 # start a terminal 
 bindsym $mod+Return exec i3-sensible-terminal 
@@ -22,13 +22,20 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill 
 
 # start dmenu (a program launcher) 
-bindsym $mod+space exec dmenu_run 
+# bindsym $mod+space exec dmenu_run 
+bindsym $mod+space exec rofi -show run
+bindsym $mod+Shift+s exec rofi -show ssh
+bindsym $mod+Shift+Tab exec rofi -show window
 
 # change focus 
 bindsym $mod+j focus left 
 bindsym $mod+k focus down 
 bindsym $mod+l focus up 
 bindsym $mod+semicolon focus right 
+
+# bindsym $mod+button9 exec dmenu_run
+bindsym $mod+button9 exec rofi -show run
+
 
 # alternatively, you can use the cursor keys: 
 bindsym $mod+Left focus left 
@@ -114,9 +121,17 @@ bindsym XF86MonBrightnessUp exec sudo acer_backlight up
 bindsym XF86MonBrightnessDown exec sudo acer_backlight down
 
 # Audio Controls 
-bindsym XF86AudioMute exec amixer -c 0 -- sset Master togglemute 
+bindsym XF86AudioMute exec ~/scripts/volume mute 
 bindsym XF86AudioLowerVolume exec amixer -c 0 -- sset Master playback 5dB- 
-bindsym XF86AudioRaiseVolume exec amixer -c 0 -- sset Master playback 5dB+ 
+bindsym XF86AudioRaiseVolume exec amixer -c 0 -- sset Master playback 5dB+
+bindsym XF86AudioPlay exec cmus-remote -u
+bindsym XF86AudioStop exec cmus-remote -s
+bindsym XF86AudioNext exec cmus-remote -n
+bindsym XF86AudioPrev exec cmus-remote -r
+bindsym Shift+Print exec scrush -m 
+bindsym Print exec scrot -m ~/Pictures/Screenshots/%Y-%m-%d.%T-screenshot.png
+bindsym $mod+Shift+Print exec scrush -s 
+bindsym $mod+Print exec scrot -s ~/Pictures/Screenshots/%Y-%m-%d.%T-screenshot.png
 
 # resize window (you can also use the mouse for that) 
 mode "resize" 
@@ -126,16 +141,16 @@ mode "resize"
 	# Pressing right will grow the window’s width. 
 	# Pressing up will shrink the window’s height. 
  	# Pressing down will grow the window’s height. 
-	bindsym j resize shrink width 10 px or 10 ppt 
-	bindsym k resize grow height 10 px or 10 ppt 
-	bindsym l resize shrink height 10 px or 10 ppt 
-	bindsym semicolon resize grow width 10 px or 10 ppt
+	bindsym j resize shrink width 15 px or 15 ppt 
+	bindsym k resize grow height 15 px or 15 ppt 
+	bindsym l resize shrink height 15 px or 15 ppt 
+	bindsym semicolon resize grow width 15 px or 15 ppt
 
         # same bindings, but for the arrow keys
-        bindsym 113 resize shrink width 10 px or 10 ppt
-        bindsym 116 resize grow height 10 px or 10 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
-        bindsym 114 resize grow width 10 px or 10 ppt
+        bindsym Left resize shrink width 15 px or 15 ppt 
+        bindsym Down resize grow height 15 px or 15 ppt 
+        bindsym Up resize shrink height 15 px or 15 ppt 
+        bindsym Right resize grow width 15 px or 15 ppt 
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
@@ -143,13 +158,20 @@ mode "resize"
 
        }
 
-client.focused          #660000 #990000 #ffffff
-client.unfocused        #110000 #220000 #888888
+
+client.focused          #d8ad4c #d8ad4c #000000
+client.unfocused        #3b3b3b #3b3b3b #888888
 client.focused_inactive #2C2D2E #2C2D2E #888888
-client.urgent           #FEA63C #4D4D4D #888888
+client.urgent           #99ad6a #99ad6a #888888
+
+
 bindsym $mod+r mode "resize"
 #bindsym Mod4+o exec i3lock -c 000000
-bindsym Mod4+o exec lock
+bindsym Mod4+o exec slimlock
+
+workspace "1:web" output DFP1
+workspace "4:tools" output DFP5
+workspace "5:chat" output DFP11
 
 bindsym Mod5+bracketright exec cmus-remote -n
 bindsym Mod5+bracketleft exec cmus-remote -r
@@ -162,14 +184,14 @@ bar {
     status_command ~/.i3/conky
     font pango:Droid Sans 10
     colors {
-            background #220000
+           background #1b1b1b
             #statusline #93a1a1
-            separator #220000
+            separator #1b1b1b
 
-            focused_workspace  #BB0000 #BB0000 #ffffff
-            active_workspace   #BB0000 #BB0000 #ffffff
-            inactive_workspace #331111 #331111 #888888
-            urgent_workspace   #ff0000 #ff0000 #ffffff
+            focused_workspace  #d8ad4c #d8ad4c #000000
+            active_workspace   #d8ad4c #d8ad4c #000000
+            inactive_workspace #3b3b3b #3b3b3b #888888
+            urgent_workspace   #99ad6a #99ad6a #888888
          }
 }
 
@@ -182,21 +204,17 @@ bar {
     modifier Mod5
     font pango:Droid Sans 10
         colors {
-            background #220000
+            background #1b1b1b
             #statusline #93a1a1
-            separator #220000
+            separator #3b3b3b
 
             focused_workspace  #BB0000 #BB0000 #ffffff
             active_workspace   #BB0000 #BB0000 #ffffff
             inactive_workspace #331111 #331111 #888888
             urgent_workspace   #ff0000 #ff0000 #ffffff
-         }
+        }
 
 }
-
-workspace 1:web output DFP5
-workspace 4:tools output DFP9
-workspace 5:chat output DFP11
 
 for_window [class="Surf"] border none
 for_window [class="Google-chrome"] border none
@@ -205,7 +223,24 @@ for_window [class="ADT"] border none
 for_window [class="URxvt"] border none
 for_window [class="Thunderbird"] border none
 for_window [class="Venom"] border none
+for_window [title="Scrolls"] border none
+for_window [class="Vlc"] border 1pixel
+for_window [class="Geany"] border none
+for_window [class="banshee"] border none
+for_window [class="Pavucontrol"] border 1pixel
+for_window [class="ProjectM-pulseaudio"] border 1pixel
+for_window [class="Nautilus"] border none
+for_window [class="Thunar"] border none
 
-exec --no-startup-id ~/scripts/wallpaper.sh
-exec --no-startup-id /home/lutzee/i3_start.sh
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+
+
+
+new_window 1pixel
+
+gaps inner 16
+
+exec --no-startup-id feh --bg-scale /home/lutzee/.i3/wallpapers/wallpaper.jpg
+exec --no-startup-id /home/lutzee/Scripts/i3_start.sh
 exec setxkbmap gb

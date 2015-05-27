@@ -1,10 +1,10 @@
 # Created by newuser for 5.0.2
 HISTFILE=~/.HISTFILE
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=10000
+SAVEHIST=10000
 bindkey -e
 
-zstyle :compinstall filename '/home/harry/.zshrc'
+zstyle :compinstall filename '/home/lutzee/.zshrc'
 
 TERMINAL=urxvt
 
@@ -12,8 +12,8 @@ autoload -Uz compinit
 autoload -U colors && colors
 compinit
 
-PROMPT="%{$fg[blue]%}%n@%M %{$fg[green]%}%~/%{$reset_color%}
-[%?] » "
+PROMPT="%{$fg[red]%}%B%n ∫∫∫ %M%b %{$fg[green]%}%~/%{$reset_color%}
+≻≻≻"
 
 alias ls="ls -F --color=auto"
 alias ll="ls -lF --color=auto"
@@ -21,13 +21,19 @@ alias la="ls -alF --color=auto"
 
 alias cp="cp -ri"
 alias mv="mv -i"
-alias rm="rm -i"
 
 alias svps="ssh jamie@lutzee.net"
 alias sdesk="ssh flat19.endoftheinternet.org -p 8888"
  
+alias fucking="sudo"
 
 alias g="git"
+alias hc="herbstclient"
+
+alias wow="git status"
+alias such="git"
+alias many="git"
+alias very="git"
 
 alias vol="alsamixer"
 
@@ -39,7 +45,8 @@ eval $(dircolors ~/.dircolors)
 
 export GOPATH=$HOME/Coding/golang
 export EDITOR=vim
-export TNS_ADMIN=/opt/oracle/INSTANTCLIENT_12_1/
+export LC_COLLATE=C
+
 
 # key bindings
 bindkey "\e[4~" end-of-line
@@ -80,3 +87,9 @@ bindkey '^i' expand-or-complete-prefix
 
 #bindkey    "^[[3~"          delete-char
 #bindkey    "^[3;5~"         delete-char
+
+PATH="/home/lutzee/perl5/bin${PATH+:}${PATH}"; export PATH;
+PERL5LIB="/home/lutzee/perl5/lib/perl5${PERL5LIB+:}${PERL5LIB}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/home/lutzee/perl5${PERL_LOCAL_LIB_ROOT+:}${PERL_LOCAL_LIB_ROOT}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/home/lutzee/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/home/lutzee/perl5"; export PERL_MM_OPT;

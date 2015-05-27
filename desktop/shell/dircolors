@@ -143,9 +143,13 @@ NORMAL 00
 # normal file
 FILE 00
 # directory
-DIR 36
+DIR 37
 # symbolic link
-LINK 35
+LINK target
+
+SETGID 30
+STICKY_OTHER_WRITABLE 32
+OTHER_WRITABLE 32
 
 # pipe, socket, block device, character device (blue bg)
 FIFO 30;44

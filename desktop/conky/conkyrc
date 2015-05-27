@@ -1,0 +1,19 @@
+background  no
+out_to_console yes
+out_to_x no
+update_interval 1
+total_run_times 0
+short_units yes
+pad_percents 3
+
+override_utf8_locale yes
+
+TEXT
+,[{"full_text": "${exec /home/lutzee/Scripts/spotify.sh}", "color":"\#cf6a4c"},
+  {"full_text": "☢${fs_free /} ☗${fs_free /media/home} ⛁${fs_free /media/data} ⏏${fs_free /media/media}","color":"\#d8ad4c"},
+  {"full_text": "❤$acpitemp°C [$cpu% | ${loadavg 1}]","color": "\#cf6a4c"},
+  {"full_text": "≣[$memperc%]", "color":"\#d8ad4c"},
+  {"full_text": "≈ [${addr enp3s0}]","color":"\#cf6a4c"},
+  {"full_text": "♫${exec /home/lutzee/Scripts/conkysound}", "color":"\#d8ad4c"},
+  {"full_text": "${time %a %d %b} ${time %H:%M:%S}"}
+]
