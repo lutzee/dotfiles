@@ -22,7 +22,8 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+Q kill 
 
 # start dmenu (a program launcher) 
-bindsym $mod+space exec dmenu_run -fn 'Dejavu Sans Mono-12' -nb '#fdf6e3' -sb '#dc322f' -sf '#93a1a1' 
+#bindsym $mod+space exec dmenu_run -fn 'Dejavu Sans Mono-16' 
+bindsym $mod+space exec rofi -show run
 
 # change focus 
 bindsym $mod+h focus left 
@@ -89,7 +90,7 @@ bindsym $mod+minus scratchpad show
 
 # move focused container to workspace 
 bindsym $mod+Shift+exclam move container to workspace 1:web
-bindsym $mod+Shift+at move container to workspace 2:tools
+bindsym $mod+Shift+quotedbl move container to workspace 2:tools
 bindsym $mod+Shift+sterling move container to workspace 3:chat
 bindsym $mod+Shift+dollar move container to workspace 4:code
 bindsym $mod+Shift+percent move container to workspace 5:misc
@@ -131,22 +132,22 @@ mode "resize"
 	# Pressing right will grow the window’s width. 
 	# Pressing up will shrink the window’s height. 
  	# Pressing down will grow the window’s height. 
-	bindsym j resize shrink width 10 px or 10 ppt 
-	bindsym k resize grow height 10 px or 10 ppt 
-	bindsym l resize shrink height 10 px or 10 ppt 
-	bindsym semicolon resize grow width 10 px or 10 ppt
+	bindsym j resize shrink width 20 px or 20 ppt 
+	bindsym k resize grow height 20 px or 20 ppt 
+	bindsym l resize shrink height 20 px or 20 ppt 
+	bindsym semicolon resize grow width 20 px or 20 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym 113 resize shrink width 10 px or 10 ppt
-        bindsym 116 resize grow height 10 px or 10 ppt
-        bindsym 111 resize shrink height 10 px or 10 ppt
-        bindsym 114 resize grow width 10 px or 10 ppt
+	# same bindings, but for the arrow keys
+	bindsym 113 resize shrink width 20 px or 20 ppt
+	bindsym 116 resize grow height 20 px or 20 ppt
+	bindsym 111 resize shrink height 20 px or 20 ppt
+	bindsym 114 resize grow width 20 px or 20 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+	# back to normal: Enter or Escape
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
 
-       }
+}
 
 client.focused          #d8ad4c #d8ad4c #000000
 client.unfocused        #3b3b3b #3b3b3b #888888
@@ -166,16 +167,16 @@ bindsym Mod5+equal exec cmus-remove -S
 # finds out, if available)
 bar {
     status_command ~/.i3/conky
-    font pango:Droid Sans 14
+    font pango:Droid Sans 16
     colors {
-            background #fdf6e3
-            #statusline #93a1a1
-            separator #fdf6e3
+            background #002b36
+            statusline #93a1a1
+            separator #002b36
 
-            focused_workspace  #d05d2d #d05d2d #000000
-            active_workspace   #d05d2d #d05d2d #000000
-            inactive_workspace #cbac4c #cbac4c #000000
-            urgent_workspace   #dc322f #dc322f #000000
+            focused_workspace  #586e75 #586e75 #002b36
+            active_workspace   #002b36 #002b36 #93a1a1
+            inactive_workspace #002b36 #002b36 #93a1a1
+            urgent_workspace   #002b36 #002b36 #ffff00 
          }
 }
 
@@ -186,18 +187,17 @@ bar {
     mode hide
     tray_output none
     modifier Mod5
-    font pango:Dejavu Sans Mono 14
-        colors {
-            background #fdf6e3
-            #statusline #93a1a1
-            separator #fdf6e3
+    font pango:Droid Sans 16
+    colors {
+            background #002b36
+            statusline #93a1a1
+            separator #002b36
 
-            focused_workspace  #cb4b16 #cb4b16 #ffffff
-            active_workspace   #BB0000 #BB0000 #ffffff
-            inactive_workspace #331111 #331111 #888888b
-            urgent_workspace   #ff0000 #ff0000 #ffffff
+            focused_workspace  #586e75 #586e75 #002b36
+            active_workspace   #002b36 #002b36 #93a1a1
+            inactive_workspace #002b36 #002b36 #93a1a1
+            urgent_workspace   #002b36 #002b36 #ffff00 
          }
-
 }
 
 gaps inner 30
@@ -206,7 +206,7 @@ for_window [class="Surf"] border none
 for_window [class="Google-chrome"] border none
 for_window [class="Chromium"] border none
 for_window [class="ADT"] border none
-for_window [class="URxvt"] border none
+for_window [class="URxvt"] border 1pixel
 for_window [class="Thunderbird"] border none
 for_window [class="Venom"] border none
 for_window [class="Firefox"] border none
